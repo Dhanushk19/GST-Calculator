@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: aqua;">
+    <fieldset>
+        <h1 style="font-size: 40px;text-align: center;color: black;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">PRODUCT GST CALCULATOR</h1>
+
+
+    <table>
+        <tr>
+            <td>CUSTOMER NAME</td>
+            <td><input type="text" id="c_name"> </td>
+       </tr>
+       <tr>
+            <td>Product Name</td>
+       
+            <td><select name="products" id="p_name">
+                    <option value="5">bluetooth</option>
+                    <option value="18">mouse</option>
+                    <option value="12">joystick</option>
+                    <option value="18">keyboard</option>
+                    <option value="10">displays</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Product Price</td>
+            <td><input type="text" id="p_price"></td>
+        </tr>
+        <tr>
+            <td>Product quantity</td>
+            <td><input type="text" id="p_quant"></td>
+        </tr>
+        
+        <tr>
+            <td><button onclick="gst()">Calculate GST</button></td>
+
+        </tr>
+    </fieldset>
+        
+
+
+    </table>
+    <table  width="500px"   style="width: 78%; margin-left: 150px;">
+        <tr>
+       <td> <h1  id="invoice"style="text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"></h1></td></tr>
+       <tr><td><h1 id="name"></h1></td></tr>
+        <tr><td><h1 id="jack"></h1></td></tr>+
+        <tr><td><h1 id="hey"></h1></td></tr>
+        <tr><td><h1 id="per"> </h1></td></tr>
+        <tr><td><h1 id="gst"></h1></td></tr>
+        <tr><td> <h1 id="hello"> </h1></td></tr>
+        <tr> <h2 id="o_success" style="text-align: center;color: blue;"></h2></tr>
+    </table>
+        
+    </fieldset>
+    <p id="demo"></p>
+    <script>
+        function gst() {
+            
+            var name=document.getElementById("c_name").value;
+            //var name1=document.getElementById("p_name").value;
+           
+            var p_name = document.getElementById("p_name").value;
+            console.log(p_name)
+            var p_price = document.getElementById("p_price").value;
+            p_price = parseFloat(p_price);
+            var p_quant = document.getElementById("p_quant").value;
+            p_quant = parseInt(p_quant);
+            var rate = document.getElementById("p_name").value;
+            rate = parseInt(rate);
+            console.log(rate)
+            var gst_amount = ((p_price * rate ) / 100) * p_quant;
+            var total = (p_price*p_quant) + gst_amount;
+          
+            document.getElementById("invoice").innerHTML="INVOICE  ";
+            document.getElementById("name").innerHTML="CUSTOMER_NAME  :"+name;
+            //document.getElementById("name1").innerHTML="PRODUCT_NAME  :"+name1;
+            document.getElementById("jack").innerHTML="PRODUCT PRICE  :"+p_price;
+            document.getElementById("hey").innerHTML="QUANTITY  :"+p_quant;
+            document.getElementById("per").innerHTML = "GST (%) :"+rate;
+            document.getElementById("gst").innerHTML = "GST AMOUNT OF THE PRODUCT  :" + gst_amount;
+            document.getElementById("hello").innerHTML="TOTAL COST OF THE PRODUCT   :"+total;
+            document.getElementById("o_success").innerHTML="THANK YOU FOR PURCHASING !!!";
+           
+
+        }
+    </script>
+</body>
+
+</html>
